@@ -1,0 +1,247 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+@keyframes load-animation {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html,
+body {
+  font-size: 16px;
+  color: #2e2e2f;
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.app {
+  background-color: #ebf0f7;
+  min-height: 100vh;
+  display: flex;
+}
+.app .tasks {
+  padding: 2rem;
+  flex-basis: 75%;
+  display: flex;
+  flex-direction: column;
+}
+.app .tasks__heading {
+  padding: 0 0 2rem 0;
+}
+.app .tasks__list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 1.5rem;
+  flex-grow: 1;
+  position: relative;
+}
+.app .tasks__list__loading {
+  background-color: #fff;
+  min-height: 1rem;
+  margin-bottom: 1rem;
+  border: 3px dashed transparent;
+  padding: 0.2rem;
+  margin: 2rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+  overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 7rem;
+  transform: translate(-50%);
+}
+.app .tasks__list__loading__animation {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    -90deg,
+    rgba(0, 0, 0, 0.1) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.1) 100%
+  );
+  position: absolute;
+  top: 0;
+  left: -100%;
+  animation: load-animation 1.5s infinite linear;
+}
+.app .tasks__list__column--drage-over {
+  outline: 3px dashed #969696;
+  outline-offset: 0.5rem;
+}
+.app .tasks__list__column__heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+.app .tasks__list__column__heading__title {
+  font-size: 1.5rem;
+}
+.app .tasks__list__column .task {
+  cursor: move;
+  background-color: #fff;
+  margin-bottom: 1rem;
+  border: 3px dashed transparent;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: rgba(99, 99, 99, 0.1) 0px 2px 8px 0px;
+}
+.app .tasks__list__column .task__department {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.app .tasks__list__column .task__department--ui-ux {
+  color: #fff;
+  background-color: #13854e;
+}
+.app .tasks__list__column .task__department--frontend {
+  color: #fff;
+  background-color: #2e87ba;
+}
+.app .tasks__list__column .task__department--asp {
+  color: #fff;
+  background-color: #d459e8;
+}
+.app .tasks__list__column .task__department--database {
+  color: #fff;
+  background-color: #6b6b6b;
+}
+.app .tasks__list__column .task__department span {
+  border-radius: 100px;
+  padding: 0.2em 0.8em;
+  font-size: 0.8rem;
+}
+.app .tasks__list__column .task p {
+  font-size: 0.9rem;
+  margin: 1.2rem 0;
+}
+.app .tasks__list__column .task:hover {
+  box-shadow: rgba(99, 99, 99, 0.3) 0px 2px 8px 0px;
+  border-color: rgba(162, 179, 207, 0.2) !important;
+}
+.app .tasks-progresses {
+  margin: 1rem 1.2rem 1.2rem 0;
+  padding: 1.2rem 1rem 0.5rem 1rem;
+  border-radius: 0.5rem;
+  background: #fff;
+  flex-grow: 1;
+}
+.app .tasks-progresses .task-progress h2 {
+  margin-bottom: 1rem;
+}
+.app .tasks-progresses .task-progress p {
+  display: flex;
+  justify-content: space-between;
+}
+.app .tasks-progresses .task-progress p span {
+  color: #969696;
+}
+.app .tasks-progresses .task-progress progress {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none;
+  margin-bottom: 1.5rem;
+  border-radius: 1rem;
+  height: 0.7rem;
+}
+.app .tasks-progresses .task-progress progress::-webkit-progress-bar {
+  border-radius: 1rem;
+}
+.app .tasks-progresses .task-progress progress::-webkit-progress-value {
+  border-radius: 1rem;
+}
+.app .tasks-progresses .task-progress progress::-moz-progress-bar {
+  border-radius: 1rem;
+}
+.app .tasks-progresses .progress--ui-ux progress::-webkit-progress-bar {
+  background-color: #35e28f;
+}
+.app .tasks-progresses .progress--ui-ux progress {
+  background-color: #35e28f;
+}
+.app .tasks-progresses .progress--ui-ux progress::-webkit-progress-value {
+  background-color: #13854e;
+}
+.app .tasks-progresses .progress--ui-ux progress::-moz-progress-bar {
+  background-color: #13854e;
+}
+.app .tasks-progresses .progress--ui-ux progress {
+  color: #13854e;
+}
+.app .tasks-progresses .progress--frontend progress::-webkit-progress-bar {
+  background-color: #86c0e1;
+}
+.app .tasks-progresses .progress--frontend progress {
+  background-color: #86c0e1;
+}
+.app .tasks-progresses .progress--frontend progress::-webkit-progress-value {
+  background-color: #2e87ba;
+}
+.app .tasks-progresses .progress--frontend progress::-moz-progress-bar {
+  background-color: #2e87ba;
+}
+.app .tasks-progresses .progress--frontend progress {
+  color: #2e87ba;
+}
+.app .tasks-progresses .progress--asp progress::-webkit-progress-bar {
+  background-color: #f1c9f8;
+}
+.app .tasks-progresses .progress--asp progress {
+  background-color: #f1c9f8;
+}
+.app .tasks-progresses .progress--asp progress::-webkit-progress-value {
+  background-color: #d459e8;
+}
+.app .tasks-progresses .progress--asp progress::-moz-progress-bar {
+  background-color: #d459e8;
+}
+.app .tasks-progresses .progress--asp progress {
+  color: #d459e8;
+}
+.app .tasks-progresses .progress--database progress::-webkit-progress-bar {
+  background-color: #ababab;
+}
+.app .tasks-progresses .progress--database progress {
+  background-color: #ababab;
+}
+.app .tasks-progresses .progress--database progress::-webkit-progress-value {
+  background-color: #6b6b6b;
+}
+.app .tasks-progresses .progress--database progress::-moz-progress-bar {
+  background-color: #6b6b6b;
+}
+.app .tasks-progresses .progress--database progress {
+  color: #6b6b6b;
+}
+
+@media (max-width: 992px) {
+  .app .tasks {
+    flex-basis: 100%;
+  }
+  .app .task-progress {
+    display: none;
+  }
+}
+@media (max-width: 768px) {
+  .app .tasks .tasks__list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
